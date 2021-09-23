@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Clientes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+</head>
+<body>
+<div class="col8 m-auto pt-2 pb-3 text-center" >
+    <h1> Clientes LPNET</h1>
+</div>
+<div class="col8 m-auto pt-2 pb-4 text-center">
+    <a href="/form" class="btn btn-success"> Cadastrar</a>
+</div>
+</div>
+<div>
+    <h3> Buscas Avançadas</h3>
+    <a href="/bauru" class='btn btn-primary'> Bauru</a>
+    <a href="" class='btn btn-primary'> Lençois- Maiores</a>
+    <a href="" class='btn btn-primary'> Celulares </a>
+    <a href="" class='btn btn-primary'> Valor </a>
+</div>
+<div class="col8 m-auto pt-2 pb-4 text-center">
+    <form method="get">
+        <input type="text" id="search" name="search" class="form-control" placeholder="Buscar Cidade">
+
+    </form>
+
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+  {%for dbs in db %}
+  <tr>
+      <th>{{dbs.id}}</th>
+      <td>{{dbs.Nome}}</td>
+      <td>{{dbs.Cidade}}</td>
+      <td>
+          <a href="/view/{{dbs.id}}/" class='btn btn-dark'> Vizualizar</a>
+          <a href="/edit/{{dbs.id}}/" class='btn btn-primary'> Editar</a>
+          <a href="/delete/{{dbs.id}}/" class='btn btn-danger'> Deletar</a>
+      </td>
+
+  </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+</body>
+</html>
